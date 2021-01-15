@@ -1,0 +1,353 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+}
+a {
+  text-decoration: none;
+}
+button {
+  border: none;
+  outline: none;
+  background: none;
+  cursor: pointer;
+}
+
+.nav {
+  width: 100%;
+  padding: 0 100px;
+  height: 80px;
+  background-color: whitesmoke;
+  border-bottom: 1px solid rgb(200, 200, 200);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 1;
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+.nav-links li {
+  margin: 0 20px;
+  min-width: 100px;
+}
+.link-btn {
+  text-transform: uppercase;
+  font-size: 18px;
+  color: rgb(80, 80, 80);
+  font-weight: 600;
+}
+
+/* sidebar */
+.sidebar-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  place-items: center;
+  visibility: hidden;
+  z-index: -1;
+  transform: scale(0);
+}
+.sidebar-wrapper.show {
+  visibility: visible;
+  z-index: 2;
+  transform: scale(1);
+}
+.sidebar {
+  width: 90vw;
+  height: 95vh;
+  border-radius: 20px;
+  position: relative;
+  padding: 4rem 2rem;
+}
+.sidebar article {
+  margin-bottom: 2rem;
+}
+.sidebar-sublinks {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  row-gap: 0.25rem;
+}
+
+/* links */
+.submenu {
+  position: absolute;
+  background-color: whitesmoke;
+  min-width: 150px;
+  border: 0.5px solid rgb(185, 185, 185);
+  border-top: none;
+  z-index: 3;
+  display: none;
+  transition: all 0.2s ease-in;
+}
+.submenu.show {
+  display: block;
+}
+.submenu-center a {
+  text-transform: capitalize;
+  display: flex;
+  align-items: center;
+  color: rgb(50, 50, 50);
+  font-size: 18px;
+  padding: 10px;
+  border-bottom: 1px solid rgb(184, 184, 184);
+}
+
+.submenu-center a:hover {
+  background-color: rgb(187, 187, 187);
+}
+
+/* Tours Section */
+.loading-circle {
+  font-size: 72px;
+  color: rgb(100, 100, 100);
+  position: relative;
+  top: 300px;
+  animation: loadingCircle 3s infinite;
+}
+
+@keyframes loadingCircle {
+  to {
+    transform: rotateZ(360deg);
+  }
+}
+
+.tours-container {
+  width: 90vw;
+  min-height: 80vh;
+  margin: 0 auto;
+}
+
+.tours-title h2,
+.testimonials-title h2 {
+  font-size: 30px;
+  text-align: center;
+  text-transform: capitalize;
+  margin: 50px auto 10px;
+}
+.tours-title .underline,
+.testimonials-title .underline {
+  width: 200px;
+  height: 4px;
+  background: rgb(73, 166, 233);
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 50px;
+}
+
+.tours-articles {
+  margin: 0 auto;
+  width: 80vw;
+  display: grid;
+  grid-template-columns: repeat(2, 600px);
+}
+
+.single-tour {
+  background: rgb(255, 255, 255);
+  border-radius: 20px;
+  margin: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+.single-tour img {
+  width: 100%;
+  height: 20rem;
+  object-fit: cover;
+  border-radius: 20px 20px 0 0;
+}
+
+.tour-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.tour-info h4 {
+  text-transform: capitalize;
+  line-height: 1.25;
+  margin-bottom: 0.75rem;
+  font-size: 20px;
+}
+.single-tour button {
+  background: transparent;
+  border-color: transparent;
+  text-transform: capitalize;
+  color: rgb(73, 166, 233);
+  cursor: pointer;
+  padding-left: 0.25rem;
+}
+.read-more-btn {
+  font-size: 16px;
+}
+.tour-price {
+  color: hsl(205, 78%, 60%);
+  background: rgb(235, 247, 255);
+  padding: 0.25rem 0.5rem;
+  border-radius: var(--radius);
+}
+.single-tour footer {
+  padding: 1.5rem 2rem;
+}
+.single-tour .delete-btn {
+  display: block;
+  width: 150px;
+  margin: 1rem auto 0 auto;
+  color: rgb(187, 37, 37);
+  border: 1px solid rgb(187, 37, 37);
+  font-size: 18px;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.no-tours {
+  font-size: 32px;
+  text-transform: capitalize;
+  line-height: 1.25;
+  margin: 60px auto 20px;
+}
+
+.refresh-tours-btn {
+  background: rgb(73, 166, 233);
+  display: inline-block;
+  padding: 0.25rem 0.5rem;
+  border-radius: 10px;
+  text-transform: capitalize;
+  color: #fff;
+  border-color: transparent;
+  cursor: pointer;
+  font-size: 1.2rem;
+  padding: 10px 20px;
+}
+
+/* Testimonials Section */
+.testimonials-section {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  overflow: hidden;
+  margin-bottom: 30vh;
+  width: 450px;
+  margin: 0 auto;
+}
+
+.testimonials-title {
+  max-width: 550px;
+  margin: 0 auto;
+}
+
+.testimonial-articles {
+  display: flex;
+  width: fit-content;
+  transition: transform 0.4s ease;
+}
+
+.testimonial-card {
+  width: 450px;
+  height: auto;
+  min-height: 230px;
+  border: 2px solid #dddddd;
+  margin-right: 50px;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: start;
+  padding: 20px;
+}
+
+.testimonial-card-active {
+  border: 2px solid rgb(73, 166, 233);
+}
+
+.testimonial-user {
+  display: flex;
+  align-items: center;
+}
+
+.user-info {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+.user-info p {
+  color: rgb(79, 86, 101);
+}
+
+.user-info * {
+  margin: 0;
+}
+
+.testimonial-user img {
+  width: 70px;
+  margin-right: 10px;
+}
+
+.user-rating {
+  display: flex;
+  align-items: center;
+}
+
+.user-rating i svg {
+  font-size: 24px;
+  color: rgb(255, 210, 125);
+}
+
+.user-review {
+  text-align: justify;
+}
+
+.testimonials-slider {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin: 50px auto;
+}
+
+.dots {
+  display: flex;
+}
+
+.dot {
+  height: 15px;
+  width: 15px;
+  background-color: #dde0e4;
+  border-radius: 50%;
+  margin: 0 2.5px;
+}
+
+.dot-active {
+  width: 30px;
+  border-radius: 10px;
+  background-color: rgb(73, 166, 233);
+  transition: all 0.4s ease;
+}
+
+.arrows {
+  display: flex;
+  width: 120px;
+  align-items: center;
+  justify-content: space-between;
+}
+.arrows button {
+  width: 60px;
+  border: none;
+  background: transparent;
+  border-radius: 50%;
+  position: relative;
+}
+.arrows button svg {
+  font-size: 26px;
+}
+.arrows button svg:hover {
+  color: rgb(80, 80, 80);
+}
